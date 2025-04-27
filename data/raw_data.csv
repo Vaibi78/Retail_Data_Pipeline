@@ -1,0 +1,12 @@
+import pandas as pd
+import requests
+
+#Fetch data from FakeStore API
+url = "https://fakestoreapi.com/products"
+response = requests.get(url)
+products = response.json()
+
+df_products = pd.DataFrame(products)
+df_products.to_csv('raw_products_data.csv', index=False)
+
+print("Data saved successfully!")
